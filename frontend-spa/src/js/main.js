@@ -33,8 +33,8 @@ let newReleaseTaskID = null;
 export default function pagebuild() {
     header()
     footer()
-    StartApp();
-    //showReleaseTasks();
+    //StartApp();
+    showReleaseTasks();
 
     //TODO: Uncomment the following line to active Popup Reminders
     //AppTimer = setInterval(ExecuteTimer, 180000);
@@ -218,12 +218,10 @@ appDivRight.addEventListener('click', function () {
                         id: releaseTaskId,
                         IsVisisble: false
                     };
-
                     apiActions.patchRequest(
                         releaseTaskEndpoint,
                         releaseEdit
                     )
-
                     swal.fire({
                         icon:'success',
                         title:'Task has been deleted.'
