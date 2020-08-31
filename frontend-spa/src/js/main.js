@@ -25,7 +25,7 @@ let statusSortOrder = "ascending";
 let prioritySortOrder = "ascending";
 let employeeSortOrder = "ascending";
 let dueTimeSortOrder = "ascending";
-let idSortOrder = "descending";
+//let idSortOrder = "descending";
 
 let currActiveReleaseTasks = null;
 let newReleaseTaskID = null;
@@ -33,8 +33,8 @@ let newReleaseTaskID = null;
 export default function pagebuild() {
     header()
     footer()
-    StartApp();
-    //showReleaseTasks();
+    //StartApp();
+    showReleaseTasks();
 
     //TODO: Uncomment the following line to active Popup Reminders
     //AppTimer = setInterval(ExecuteTimer, 180000);
@@ -62,14 +62,14 @@ appDivLeft.addEventListener('click', function () {
     }
 })
 
-appDivLeft.addEventListener('click', function () {
+// appDivLeft.addEventListener('click', function () {
 
-    if (event.target.classList.contains('table_header__ID')) {
-        idSortOrder = Sort.ID(idSortOrder, currActiveReleaseTasks);
-        currentSelectedRowTaskID = HandleTaskRows.highlightSelectedRow();
-        HandleTaskRows.highlightSpecificRow(currentSelectedRowTaskID);
-    }
-})
+//     if (event.target.classList.contains('table_header__ID')) {
+//         idSortOrder = Sort.ID(idSortOrder, currActiveReleaseTasks);
+//         currentSelectedRowTaskID = HandleTaskRows.highlightSelectedRow();
+//         HandleTaskRows.highlightSpecificRow(currentSelectedRowTaskID);
+//     }
+// })
 
 appDivLeft.addEventListener('click', function () {
 
@@ -218,12 +218,10 @@ appDivRight.addEventListener('click', function () {
                         id: releaseTaskId,
                         IsVisisble: false
                     };
-
                     apiActions.patchRequest(
                         releaseTaskEndpoint,
                         releaseEdit
                     )
-
                     swal.fire({
                         icon:'success',
                         title:'Task has been deleted.'
