@@ -1,6 +1,20 @@
 import ReleaseTasks from './ReleaseTasks';
 
 const appDivLeft = document.querySelector('.appLeft');
+let currActiveReleaseTasks = null;
+
+let idSortOrder = "descending";
+
+
+appDivLeft.addEventListener('click', function () {
+
+    if (event.target.classList.contains('table_header__ID')) {
+        idSortOrder = ID(idSortOrder, currActiveReleaseTasks);
+        currentSelectedRowTaskID = HandleTaskRows.highlightSelectedRow();
+        HandleTaskRows.highlightSpecificRow(currentSelectedRowTaskID);
+    }
+})
+
 
 function HighlightSortedColumn(colID){
 

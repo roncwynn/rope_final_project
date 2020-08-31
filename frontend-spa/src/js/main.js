@@ -25,7 +25,7 @@ let statusSortOrder = "ascending";
 let prioritySortOrder = "ascending";
 let employeeSortOrder = "ascending";
 let dueTimeSortOrder = "ascending";
-let idSortOrder = "descending";
+//let idSortOrder = "descending";
 
 let currActiveReleaseTasks = null;
 let newReleaseTaskID = null;
@@ -62,14 +62,14 @@ appDivLeft.addEventListener('click', function () {
     }
 })
 
-appDivLeft.addEventListener('click', function () {
+// appDivLeft.addEventListener('click', function () {
 
-    if (event.target.classList.contains('table_header__ID')) {
-        idSortOrder = Sort.ID(idSortOrder, currActiveReleaseTasks);
-        currentSelectedRowTaskID = HandleTaskRows.highlightSelectedRow();
-        HandleTaskRows.highlightSpecificRow(currentSelectedRowTaskID);
-    }
-})
+//     if (event.target.classList.contains('table_header__ID')) {
+//         idSortOrder = Sort.ID(idSortOrder, currActiveReleaseTasks);
+//         currentSelectedRowTaskID = HandleTaskRows.highlightSelectedRow();
+//         HandleTaskRows.highlightSpecificRow(currentSelectedRowTaskID);
+//     }
+// })
 
 appDivLeft.addEventListener('click', function () {
 
