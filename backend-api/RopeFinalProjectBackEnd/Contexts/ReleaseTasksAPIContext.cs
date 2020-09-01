@@ -85,10 +85,10 @@ namespace RopeFinalProjectBackEnd.Contexts
                 );
 
          modelbuilder.Entity<Question>().HasData(
-            new Question { ID = 1, QuestionText = "Will this be complete on time?", AskingEmployeeID = 5, ReleaseTaskID = 1 },
-            new Question { ID = 2, QuestionText = "Are there any issues?", AskingEmployeeID = 5, ReleaseTaskID = 1 },
-            new Question { ID = 3, QuestionText = "Are there errors?", AskingEmployeeID = 5, ReleaseTaskID = 2 },
-            new Question { ID = 4, QuestionText = "Can this be cancelled?", AskingEmployeeID = 5, ReleaseTaskID = 3 }
+            new Question { ID = 1, QuestionText = "Will this be complete on time?" },//, AskingEmployeeID = 5, ReleaseTaskID = 1 },
+            new Question { ID = 2, QuestionText = "Are there any issues?" },//, AskingEmployeeID = 5, ReleaseTaskID = 1 },
+            new Question { ID = 3, QuestionText = "Are there errors?" },//, AskingEmployeeID = 5, ReleaseTaskID = 2 },
+            new Question { ID = 4, QuestionText = "Can this be cancelled?" }//, AskingEmployeeID = 5, ReleaseTaskID = 3 }
             );
         }
     }

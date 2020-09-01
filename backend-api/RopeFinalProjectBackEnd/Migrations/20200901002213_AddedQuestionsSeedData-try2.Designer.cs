@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RopeFinalProjectBackEnd.Contexts;
 
 namespace RopeFinalProjectBackEnd.Migrations
 {
     [DbContext(typeof(ReleaseTasksAPIContext))]
-    partial class ReleaseTasksAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20200901002213_AddedQuestionsSeedData-try2")]
+    partial class AddedQuestionsSeedDatatry2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -215,10 +217,18 @@ namespace RopeFinalProjectBackEnd.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AskingEmployeeID")
+                        .HasColumnType("int");
+
                     b.Property<string>("QuestionText")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ReleaseTaskID")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("ReleaseTaskID");
 
                     b.ToTable("Questions");
 
@@ -226,22 +236,30 @@ namespace RopeFinalProjectBackEnd.Migrations
                         new
                         {
                             ID = 1,
-                            QuestionText = "Will this be complete on time?"
+                            AskingEmployeeID = 5,
+                            QuestionText = "Will this be complete on time?",
+                            ReleaseTaskID = 1
                         },
                         new
                         {
                             ID = 2,
-                            QuestionText = "Are there any issues?"
+                            AskingEmployeeID = 5,
+                            QuestionText = "Are there any issues?",
+                            ReleaseTaskID = 1
                         },
                         new
                         {
                             ID = 3,
-                            QuestionText = "Are there errors?"
+                            AskingEmployeeID = 5,
+                            QuestionText = "Are there errors?",
+                            ReleaseTaskID = 2
                         },
                         new
                         {
                             ID = 4,
-                            QuestionText = "Can this be cancelled?"
+                            AskingEmployeeID = 5,
+                            QuestionText = "Can this be cancelled?",
+                            ReleaseTaskID = 3
                         });
                 });
 
@@ -294,273 +312,273 @@ namespace RopeFinalProjectBackEnd.Migrations
                         {
                             ID = 1,
                             AssignedEmployeeID = 1,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 342, DateTimeKind.Local).AddTicks(6022),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 792, DateTimeKind.Local).AddTicks(9912),
                             CurrentDueTime = new DateTime(2020, 8, 19, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 1,
                             CurrentStatusID = 1,
                             Description = "Validate Team Ready for Out of Service Page",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(4149),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(7633),
                             Name = "Validate Readiness"
                         },
                         new
                         {
                             ID = 2,
                             AssignedEmployeeID = 2,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5059),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8649),
                             CurrentDueTime = new DateTime(2020, 8, 19, 20, 15, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 2,
                             CurrentStatusID = 2,
                             Description = "Update Message To Reflect Routine Maintenance",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5090),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8678),
                             Name = "Update User Message"
                         },
                         new
                         {
                             ID = 3,
                             AssignedEmployeeID = 3,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5116),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8703),
                             CurrentDueTime = new DateTime(2020, 8, 19, 20, 35, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 3,
                             CurrentStatusID = 3,
                             Description = "Publish Content Updates/Changes, See Content Updates",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5119),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8707),
                             Name = "Push Content Changes"
                         },
                         new
                         {
                             ID = 4,
                             AssignedEmployeeID = 2,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5131),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8718),
                             CurrentDueTime = new DateTime(2020, 8, 14, 20, 50, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 2,
                             CurrentStatusID = 1,
                             Description = "Ensure all modules have correct content changes",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5134),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8722),
                             Name = "Verify Content Changes"
                         },
                         new
                         {
                             ID = 5,
                             AssignedEmployeeID = 3,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5144),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8731),
                             CurrentDueTime = new DateTime(2020, 8, 14, 20, 50, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 2,
                             CurrentStatusID = 1,
                             Description = "Upload all Application Changes to Production",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5147),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8734),
                             Name = "Upload App Changes"
                         },
                         new
                         {
                             ID = 6,
                             AssignedEmployeeID = 4,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5157),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8743),
                             CurrentDueTime = new DateTime(2020, 8, 14, 20, 50, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 2,
                             CurrentStatusID = 1,
                             Description = "Check all Production repositories for current code changes",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5160),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8746),
                             Name = "Verify Content Changes"
                         },
                         new
                         {
                             ID = 7,
                             AssignedEmployeeID = 4,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5171),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8756),
                             CurrentDueTime = new DateTime(2020, 8, 19, 21, 15, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 4,
                             CurrentStatusID = 4,
                             Description = "Execute App Container Changes/Updates in Production, See App Container Tasks",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5174),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8760),
                             Name = "Execute App Changes"
                         },
                         new
                         {
                             ID = 8,
                             AssignedEmployeeID = 2,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5184),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8770),
                             CurrentDueTime = new DateTime(2020, 8, 19, 22, 45, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 4,
                             CurrentStatusID = 2,
                             Description = "Deploy New U/I Layer Package, See U / I Layer Code",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5187),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8773),
                             Name = "Deploy New UI"
                         },
                         new
                         {
                             ID = 9,
                             AssignedEmployeeID = 3,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5197),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8782),
                             CurrentDueTime = new DateTime(2020, 8, 14, 20, 50, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 2,
                             CurrentStatusID = 1,
                             Description = "Verify U/I has deployed to Production",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5200),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8786),
                             Name = "Verify New UI"
                         },
                         new
                         {
                             ID = 10,
                             AssignedEmployeeID = 3,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5209),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8796),
                             CurrentDueTime = new DateTime(2020, 8, 19, 23, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 4,
                             CurrentStatusID = 3,
                             Description = "Deploy Shared U/I Layer Package  See U / I Layer Code",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5213),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8800),
                             Name = "Deploy Shared UI"
                         },
                         new
                         {
                             ID = 11,
                             AssignedEmployeeID = 3,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5222),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8809),
                             CurrentDueTime = new DateTime(2020, 8, 14, 20, 50, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 2,
                             CurrentStatusID = 1,
                             Description = "Verify Shared U/I has deployed to Production",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5225),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8813),
                             Name = "Verify Shared UI"
                         },
                         new
                         {
                             ID = 12,
                             AssignedEmployeeID = 1,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5235),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8822),
                             CurrentDueTime = new DateTime(2020, 8, 19, 23, 15, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 4,
                             CurrentStatusID = 1,
                             Description = "Deploy New Services Layer Package, See Services Layer Code",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5239),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8825),
                             Name = "Deploy New Services"
                         },
                         new
                         {
                             ID = 13,
                             AssignedEmployeeID = 1,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5248),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8835),
                             CurrentDueTime = new DateTime(2020, 8, 19, 23, 15, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 4,
                             CurrentStatusID = 1,
                             Description = "Verify Shared U/I has deployed to Production",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5251),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8839),
                             Name = "Verify New Services"
                         },
                         new
                         {
                             ID = 14,
                             AssignedEmployeeID = 2,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5261),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8849),
                             CurrentDueTime = new DateTime(2020, 8, 19, 23, 55, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 2,
                             CurrentStatusID = 3,
                             Description = "Perform System Cache Refresh",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5264),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8852),
                             Name = "Perform Refresh"
                         },
                         new
                         {
                             ID = 15,
                             AssignedEmployeeID = 2,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5274),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8863),
                             CurrentDueTime = new DateTime(2020, 8, 19, 23, 55, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 2,
                             CurrentStatusID = 3,
                             Description = "Verify System Cache Refresh",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5277),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8866),
                             Name = "Verify Refresh"
                         },
                         new
                         {
                             ID = 16,
                             AssignedEmployeeID = 2,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5286),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8875),
                             CurrentDueTime = new DateTime(2020, 8, 20, 0, 1, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 2,
                             CurrentStatusID = 2,
                             Description = "Bring Down Out of Service Page",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5290),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8879),
                             Name = "Remove Service Page"
                         },
                         new
                         {
                             ID = 17,
                             AssignedEmployeeID = 4,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5299),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8889),
                             CurrentDueTime = new DateTime(2020, 8, 21, 1, 15, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 4,
                             CurrentStatusID = 3,
                             Description = "Update Message To Reflect Issues In The Event An Unplanned Outage Occurs",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5302),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8892),
                             Name = "Update User Message"
                         },
                         new
                         {
                             ID = 18,
                             AssignedEmployeeID = 3,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5312),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8902),
                             CurrentDueTime = new DateTime(2020, 8, 20, 2, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 3,
                             CurrentStatusID = 1,
                             Description = "Notify Group Validation Can Begin",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5315),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8906),
                             Name = "Notify Validation Group"
                         },
                         new
                         {
                             ID = 19,
                             AssignedEmployeeID = 5,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5324),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8915),
                             CurrentDueTime = new DateTime(2020, 8, 20, 8, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 3,
                             CurrentStatusID = 3,
                             Description = "System Monitoring Through Monday",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5327),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8919),
                             Name = "Monitor System"
                         },
                         new
                         {
                             ID = 20,
                             AssignedEmployeeID = 5,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5336),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8928),
                             CurrentDueTime = new DateTime(2020, 8, 20, 8, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 4,
                             CurrentStatusID = 1,
                             Description = "Enure no steps were missed",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5340),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8931),
                             Name = "Complete Final Checklist"
                         },
                         new
                         {
                             ID = 21,
                             AssignedEmployeeID = 5,
-                            CreatedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5349),
+                            CreatedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8940),
                             CurrentDueTime = new DateTime(2020, 8, 20, 8, 30, 0, 0, DateTimeKind.Unspecified),
                             CurrentPriorityID = 3,
                             CurrentStatusID = 1,
                             Description = "Let users know system has been updated.",
                             IsVisisble = true,
-                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 25, 59, 345, DateTimeKind.Local).AddTicks(5352),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 20, 22, 12, 795, DateTimeKind.Local).AddTicks(8943),
                             Name = "Notify Users"
                         });
                 });
@@ -613,6 +631,15 @@ namespace RopeFinalProjectBackEnd.Migrations
                 {
                     b.HasOne("RopeFinalProjectBackEnd.Models.ReleaseTask", null)
                         .WithMany("Comments")
+                        .HasForeignKey("ReleaseTaskID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("RopeFinalProjectBackEnd.Models.Question", b =>
+                {
+                    b.HasOne("RopeFinalProjectBackEnd.Models.ReleaseTask", null)
+                        .WithMany("Questions")
                         .HasForeignKey("ReleaseTaskID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

@@ -30,7 +30,7 @@ namespace RopeFinalProjectBackEnd.Models
 
         public IEnumerable<Comment> Comments { get; set; }
 
-        public IEnumerable<Question> Questions { get; set; }
+        //public IEnumerable<Question> Questions { get; set; }
 
     }
 }
