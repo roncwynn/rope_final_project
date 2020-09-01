@@ -14,6 +14,7 @@ namespace RopeFinalProjectBackEnd.Contexts
         public DbSet<Status> Statuses { get; set; }
         public DbSet<Priority> Priorities { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Question> Questions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -82,6 +83,14 @@ namespace RopeFinalProjectBackEnd.Contexts
                 new Comment { ID = 9, Details = "GO Decision made.", IsVisible = true, ReleaseTaskID = 5 },
                 new Comment { ID = 10, Details = "Need help.", IsVisible = true, ReleaseTaskID = 3}
                 );
-        }
-    }
+
+            modelbuilder.Entity<Question>().HasData(
+               new Question { ID = 1, QuestionText = "Will this be complete on time?", IsVisible = true, ReleaseTaskID = 1 },
+               new Question { ID = 2, QuestionText = "Are there any issues?", IsVisible = true, ReleaseTaskID = 1 },
+               new Question { ID = 3, QuestionText = "Are there errors?", IsVisible = true, ReleaseTaskID = 2 },
+               new Question { ID = 4, QuestionText = "Can this be cancelled?", IsVisible = true, ReleaseTaskID = 3 }
+               );
+
+      }
+   }
 }

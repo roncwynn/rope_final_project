@@ -29,6 +29,7 @@ namespace RopeFinalProjectBackEnd.Models
         public Employee Employee { get; set; }
 
         public IEnumerable<Comment> Comments { get; set; }
+        public IEnumerable<Question> Questions { get; set; }
 
-    }
+   }
 }
