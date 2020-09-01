@@ -35,6 +35,7 @@ namespace RopeFinalProjectBackEnd.Repositories
                 .Include("Status")
                 .Include("Priority")
                 .Include("Comments")
+                .Include("Questions")
                 .Include("Employee").FirstOrDefault();
             return someReleaseTask;
         }
@@ -46,6 +47,7 @@ namespace RopeFinalProjectBackEnd.Repositories
             .Include(rt => rt.Priority).Where(p => p.CurrentPriorityID == p.Priority.ID)
             .Include(rt => rt.Employee).Where(e => e.AssignedEmployeeID == e.Employee.ID)
             .Include(rt => rt.Comments)
+            .Include(rt => rt.Questions)
             .ToList();
 
             return releaseTasks;
