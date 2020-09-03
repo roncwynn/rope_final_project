@@ -59,7 +59,7 @@ function highlightSelectedRow() {
             var rowSelected = table.getElementsByTagName('tr')[rowId];
 
             selectedIndex = rowSelected.cells[0].innerHTML;
-            console.log(selectedIndex);
+            //console.log(selectedIndex);
 
             rowSelected.style.backgroundColor = "rgb(173, 204, 209)";
             rowSelected.className += " selected";

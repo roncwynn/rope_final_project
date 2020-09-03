@@ -9,6 +9,7 @@ import ReleaseTaskPostSection from './components/ReleaseTaskPostSection';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import CommentPost from './components/CommentPost';
+import QuestionPost from './components/QuestionPost';
 import HomePageLeft from './components/HomePageLeft';
 import HomePageRight from './components/HomePageRight';
 import Sort from './components/Sort';
@@ -135,11 +136,9 @@ function getReleaseTasksShowFirst(){
 }
 
 function getReleaseTasksShowCurrent(){
-    console.log('9-in get rel Show current');
     fetch("https://localhost:44302/api/releaseTask")
     .then(response => response.json())
     .then(releaseTasks => {
-        console.log('10-in then');
         releaseTasks = releaseTasks.filter(task => task.isVisisble == true);
         appDivLeft.innerHTML = ReleaseTasks(releaseTasks);
         currentSelectedRowTaskID = HandleTaskRows.highlightSelectedRow();
@@ -147,7 +146,6 @@ function getReleaseTasksShowCurrent(){
         currActiveReleaseTasks = releaseTasks;
     })
     .catch(err => console.log(err))
-    console.log('11-end of get show current');
 }
 
 function getReleaseTasksShowNew(){
@@ -170,8 +168,6 @@ function getReleaseTasksShowNew(){
 
 function showReleaseTasks() {
     getReleaseTasksShowFirst();
-    console.log('in show rel tasks');
-    
 }
 
 appDivRight.addEventListener('click', function () {
@@ -415,6 +411,52 @@ appDivRight.addEventListener('click', function () {
     }
 })
 
+appDivRight.addEventListener('click', function () {
+    if (event.target.classList.contains('add__questionButton')) {
+        const ReleaseTaskEditSection = document.querySelector('.releaseTask__detailsInfo');
+        const releaseTaskId = event.target.parentElement.querySelector('.add__questionButton').id;
+        apiActions.getRequest(
+            `https://localhost:44302/api/releaseTask/${releaseTaskId}`,
+            addQuestion => {
+                ReleaseTaskEditSection.innerHTML = QuestionPost(releaseTaskId, addQuestion);
+            }
+        )
+    }
+})
+
+appDivRight.addEventListener('click', function () {
+    if (event.target.classList.contains('add-question__submit')) {
+        const releaseTaskId = event.target.parentElement.querySelector('.add-question__submit').id;
+        const isVisible = true;
+        const commentDetails = event.target.parentElement.querySelector('.add-question__details').value;
+
+        const newQuestionBody = {
+            QuestionText: commentDetails,
+            IsVisible: isVisible,
+            ReleaseTaskID: releaseTaskId
+        }
+
+        apiActions.postRequest2(
+            "https://localhost:44302/api/question",
+            newQuestionBody
+        )
+
+        const releaseTaskEndpoint = `https://localhost:44302/api/releaseTask/${releaseTaskId}`;
+
+        swal.fire({
+            icon:'success',
+            title:'Question had been added.'
+        }).then((result) => {
+            getReleaseTasksShowCurrent();
+            const releaseTaskCallback = releaseTask => {
+                appDivRight.innerHTML = ReleaseTask(releaseTask);
+            };
+            apiActions.getRequest(releaseTaskEndpoint, releaseTaskCallback);
+        });
+    }
+})
+
+
 function getOverDueReleaseTasks(){
     fetch("https://localhost:44302/api/releaseTask")
         .then(response => response.json())
@@ -422,7 +464,7 @@ function getOverDueReleaseTasks(){
             dueTasks = dueTasks.filter(task => task.isVisisble == true);
             dueTasks = dueTasks.filter(task => task.currentStatusID < 3);
             dueTasks = dueTasks.filter(task => (new Date(task.currentDueTime)) < (new Date()));
-            console.log(dueTasks);
+            //console.log(dueTasks);
         })
         .catch(err => console.log(err))
 }
@@ -430,7 +472,7 @@ function getOverDueReleaseTasks(){
 function ExecuteTimer(){
     currActiveReleaseTasks.sort((a, b) => (a.currentDueTime > b.currentDueTime) ? 1 : -1);
     const totalTasks = currActiveReleaseTasks.length;
-    console.log('Total Tasks='+totalTasks);
+    //console.log('Total Tasks='+totalTasks);
 
     swal.queue([{
         title: 'There are Overdue Tasks',
@@ -445,7 +487,7 @@ function ExecuteTimer(){
                 dueTasks = dueTasks.filter(task => task.isVisisble == true);
                 dueTasks = dueTasks.filter(task => task.currentStatusID < 3);
                 dueTasks = dueTasks.filter(task => (new Date(task.currentDueTime)) < (new Date()));
-                console.log(dueTasks);
+                //console.log(dueTasks);
                 dueTasks.forEach(task => {
                      swal.insertQueueStep({
                          showCancelButton: true,
