@@ -28,6 +28,7 @@ export default function ReleaseTask(releaseTask) {
     <section class="releaseTask__detailsInfo">
         <button class="edit__releaseTaskButton" id="${releaseTask.id}">Edit</button>
         <button class="add__commentButton" id="${releaseTask.id}">Add Comment</button>
+        <button class="add__questionButton" id="${releaseTask.id}">Add Question</button>
         <button class="delete_releaseTaskButton" id="${releaseTask.id}">Delete</button>
         <div class="releaseTask__detailsInfolist">
             <p class="releaseTask__currentPriorityName"><b>Priority:</b><span class="details" id="${releaseTask.currentPriorityID}">&ensp; ${releaseTask.priority.name}</span></p>
@@ -45,7 +46,6 @@ export default function ReleaseTask(releaseTask) {
             </p>
             <p class="releaseTask__question"><b>Questions:</b>
                 ${releaseTask.questions.map(question => {
-                    console.log('in questions');
                     return `
                     <li type="date"><span class="details">${question.questionText}<span></li>
                     `

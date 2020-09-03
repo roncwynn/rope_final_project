@@ -133,24 +133,24 @@ tbody {
     cursor: pointer;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.add-comment__submit{
+.add-comment__submit, .add-question__submit{
     background-color: rgb(245, 91, 2);
     font-weight: bold;
     border-radius: 10px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.add-comment__submit:hover{
+.add-comment__submit:hover, .add-question__submit:hover{
     background-color: yellow;
     cursor: pointer;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.add__commentButton{
+.add__commentButton, .add__questionButton {
     background-color: rgb(185, 184, 184);
     border-radius: 8px;
     font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.add__commentButton:hover{
+.add__commentButton:hover, .add__questionButton:hover{
     background-color: yellow;
     cursor: pointer;
     font-weight: bold;
