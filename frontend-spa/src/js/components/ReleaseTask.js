@@ -43,6 +43,14 @@ export default function ReleaseTask(releaseTask) {
                     `
                 }).join("")}
             </p>
+            <p class="releaseTask__question"><b>Questions:</b>
+                ${releaseTask.questions.map(question => {
+                    console.log('in questions');
+                    return `
+                    <li type="date"><span class="details">${question.questionText}<span></li>
+                    `
+                }).join("")}
+            </p>
             <p class="releaseTask__createdDate"><b>Created:</b><span class="details">&ensp; ${moment(releaseTask.createdDate).format(('MMMM Do YYYY, h:mm a'))}</span></p>
         </div>
     </section>
